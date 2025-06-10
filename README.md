@@ -22,7 +22,7 @@ yarn add @erroba/react-native-bcssdk
 Adicionalmente necesitamos agregar unas dependencias nativas que no pueden agregarse en el plugin.
 
 * Android: archivo bcssdk.1.x.x.aar
-* iOS: bcssdk.xcframework
+* iOS: carpeta bcssdk con dependencias
 
 Los mismos son provistos al equipo de desarrollo por erroba.
 
@@ -64,17 +64,18 @@ Debería quedarte algo así:
 
 ## Librerias nativas - iOS
 
-Para iOS es necesario referenciar el bcssdk.xcframework en el proyecto APP de Xcode.
+Para iOS es necesario agregar los recursos de la carpeta bcssdk al proyecto APP de Xcode.
 
-1. Abre la APP de iOS con Xcode.
-2. Referencia el framework bcssdk.xcframework (lo puedes arrastrar desde finder a la carpeta Frameworks de xcode y elige la opción copy files)
-3. En la configuración general de APP, chequea que el framework este referenciado y esté como "Embed & Sign":
+1. Copia la carpeta `bcssdk` que esta dentro de iOS en el zip de SDK a la carpeta `ios/` de tu proyecto de react.
+2. Edita el `Podfile` y agrega `pod 'bcssdk', :path => 'bcssdk'`
 
 ![image_caption](img/ios_ref01_rn.png)
 
-4. En Build Phases, en la seccion de "Copy Bundle Resources", agrega "bcssdk.xcframework"
+3. Ejecuta `pod install` para que se instalen las dependencias
 
-![image_caption](img/ios_ref02_rn.png)
+```
+pod install
+```
 
 ## Utilización del cliente
 

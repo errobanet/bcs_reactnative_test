@@ -37,4 +37,7 @@ target 'bcs_reactnative_test' do
       # :ccache_enabled => true
     )
   end
+  
+  pod 'bcssdk', :path => 'bcssdk'
+
 end
